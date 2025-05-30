@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>TO - DO List</h1>
+    <div>
+        <% for(t of tasks) {%>
+    <div class="contain">
+        <div><h2><%= t.task%></h2>
+        <h3><%= t.desc%></h3>
+        <button><a href="/tasks/<%= t.id %>">See Task Details</a></button>
+        <button><a href="/tasks/<%= t.id %>/edit">Edit Task</a></button>
+        </div>
+        <div class="image"><img src="<%=t.img%>" alt="someImage">
+        <form method="post" action="/tasks/<%= t.id %>?_method=DELETE"> 
+            <button><a>Delete Task</a></button>
+        </form>
+        </div>
+    </div><% } %>
+    </div>
+    <button><a href="/tasks/new">Create New Task</a></button>
+</body>
+</html>
